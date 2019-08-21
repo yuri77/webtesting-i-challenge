@@ -1,8 +1,26 @@
+import React from "react";
+
+const Players = props => {
+  if (props.players.length == 0) {
+    return <p>No players found</p>;
+  }
+
+  return (
+    <>
+      {props.players.map(player => (
+        <div key={player.id} data-testid="player">
+          {player.name}
+        </div>
+      ))}
+    </>
+  );
+};
+
 module.exports = {
   succeed,
   fail,
   repair,
-  get,
+  get
 };
 
 function succeed(item) {
@@ -13,7 +31,7 @@ function fail(item) {
   return { ...item };
 }
 
-function repair(item) {
+export default function repair(item) {
   return { ...item };
 }
 
